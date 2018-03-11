@@ -5,7 +5,10 @@ public class DistinctWordCountMain {
 	
 	public static void main(String[] args) {
 		LargerFileWriter largeFileWriter = new LargerFileWriter();
-		largeFileWriter.writeToFile();
+		ReadingLargeFile largeFileReader = new ReadingLargeFile();
+//		largeFileWriter.writeToFile();
+		largeFileReader.readingFileLineByLine();
+		
 	}
 
 }
