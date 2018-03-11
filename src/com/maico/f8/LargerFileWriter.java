@@ -22,7 +22,7 @@ public class LargerFileWriter {
 			fw = new FileWriter(FILENAME);
 			bw = new BufferedWriter(fw);
 			System.out.println("Start Writing--->>");
-			for(int i = 0; i< 100; i++) {
+			for(int i = 0; i< 50000000; i++) {
 				bw.write(content + i);
 				bw.newLine();
 			}
