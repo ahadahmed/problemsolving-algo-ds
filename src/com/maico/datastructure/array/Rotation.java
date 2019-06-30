@@ -36,13 +36,36 @@ public class Rotation {
     }
 
 
-    public void leftRotateByOne(int[] arr){
+    /**
+     * array rotaion by reverse algorithm
+     */
+
+    public int[] usingReverseAlgorithm(int[] originalArray, int rotaionByNumber){
+        reverseArray(originalArray, 0, rotaionByNumber -1);
+        reverseArray(originalArray, rotaionByNumber, originalArray.length -1);
+        reverseArray(originalArray, 0, originalArray.length -1);
+        return originalArray;
+    }
+
+
+    private void reverseArray(int[] arr, int startIndex, int endIndex){
+
+        while(startIndex < endIndex){
+            int temp = arr[startIndex];
+            arr[startIndex] = arr[endIndex];
+            arr[endIndex] = temp;
+            startIndex++;
+            endIndex--;
+        }
 
     }
 
     public static void main(String[] args) {
         Rotation arrayRotation = new Rotation();
-        arrayRotation.usingTempArray(arrayRotation.originalArray, 2);
+//        arrayRotation.usingTempArray(arrayRotation.originalArray, 2);
+        System.out.println("Array before rotation -- " + Arrays.toString(arrayRotation.originalArray));
+        arrayRotation.usingReverseAlgorithm(arrayRotation.originalArray, 3);
+        System.out.println("Array after rotaion -- "+Arrays.toString(arrayRotation.originalArray));
     }
 
 }
