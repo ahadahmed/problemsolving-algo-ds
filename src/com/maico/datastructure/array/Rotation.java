@@ -76,11 +76,31 @@ public class Rotation {
 
     }
 
+
+    /**
+     * Method for rotating array in cyclic order by one (clockwise)
+     * @param originalArray
+     * @return
+     */
+
+    public int[] cyclicRotation(int[] originalArray){
+        int temp = originalArray[originalArray.length - 1];
+
+        for(int i = originalArray.length -2; i >=0 ; i--){
+            originalArray[i+1] = originalArray[i];
+        }
+        originalArray[0] = temp;
+
+
+        return originalArray;
+    }
+
     public static void main(String[] args) {
         Rotation arrayRotation = new Rotation();
 //        arrayRotation.usingTempArray(arrayRotation.originalArray, 2);
         System.out.println("Array before rotation -- " + Arrays.toString(arrayRotation.originalArray));
-        arrayRotation.usingReverseAlgorithm(arrayRotation.originalArray, 3);
+//        arrayRotation.usingReverseAlgorithm(arrayRotation.originalArray, 3);
+        arrayRotation.cyclicRotation(arrayRotation.originalArray);
         System.out.println("Array after rotaion -- "+Arrays.toString(arrayRotation.originalArray));
     }
 
