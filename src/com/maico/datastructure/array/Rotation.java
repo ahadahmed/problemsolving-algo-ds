@@ -12,23 +12,26 @@ public class Rotation {
 
 
     /**
-     * array rotation using a temporary array
+     * rotating an array by 'd' elements using a temporary array
+     * @param originalArray
+     * @param numberOfElementsTobeRotated
+     * @return
      */
-    public int[] usingTempArray(int[] originalArray, int rotationByNumber){
+    public int[] usingTempArray(int[] originalArray, int numberOfElementsTobeRotated){
         int[] rotatedArray = new int[originalArray.length];
-        int[] tempArray = new int[rotationByNumber];
-        for (int j = 0; j < rotationByNumber; j++ ){
+        int[] tempArray = new int[numberOfElementsTobeRotated];
+        for (int j = 0; j < numberOfElementsTobeRotated; j++ ){
             tempArray[j] = originalArray[j];
         }
         System.out.println(Arrays.toString(tempArray));
 
-        for( int j=rotationByNumber;  j < originalArray.length; j++){
-            rotatedArray[j - rotationByNumber] = originalArray[j];
+        for( int j=numberOfElementsTobeRotated;  j < originalArray.length; j++){
+            rotatedArray[j - numberOfElementsTobeRotated] = originalArray[j];
         }
         System.out.println(Arrays.toString(rotatedArray));
 
         for(int i= 0; i<tempArray.length; i++){
-            rotatedArray[rotatedArray.length - (rotationByNumber-i)] = tempArray[i];
+            rotatedArray[rotatedArray.length - (numberOfElementsTobeRotated-i)] = tempArray[i];
         }
         System.out.println(Arrays.toString(rotatedArray));
 
@@ -37,23 +40,36 @@ public class Rotation {
 
 
     /**
-     * array rotaion by reverse algorithm
+     * method for rotating an array by 'd' elements using reverse algorithm
+     * @param originalArray
+     * @param numberOfElementsTobeRotated
+     * @return
      */
 
-    public int[] usingReverseAlgorithm(int[] originalArray, int rotaionByNumber){
-        reverseArray(originalArray, 0, rotaionByNumber -1);
-        reverseArray(originalArray, rotaionByNumber, originalArray.length -1);
+    public int[] usingReverseAlgorithm(int[] originalArray, int numberOfElementsTobeRotated){
+        reverseArray(originalArray, 0, numberOfElementsTobeRotated -1);
+        reverseArray(originalArray, numberOfElementsTobeRotated, originalArray.length -1);
         reverseArray(originalArray, 0, originalArray.length -1);
         return originalArray;
     }
 
 
-    private void reverseArray(int[] arr, int startIndex, int endIndex){
+
+
+    /**
+     * method for reversing an array
+     * @param array
+     * @param startIndex
+     * @param endIndex
+     */
+
+
+    private void reverseArray(int[] array, int startIndex, int endIndex){
 
         while(startIndex < endIndex){
-            int temp = arr[startIndex];
-            arr[startIndex] = arr[endIndex];
-            arr[endIndex] = temp;
+            int temp = array[startIndex];
+            array[startIndex] = array[endIndex];
+            array[endIndex] = temp;
             startIndex++;
             endIndex--;
         }
