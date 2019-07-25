@@ -1,45 +1,55 @@
 package com.maico.algorithmpractice.dp;
 
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
-//initial commit
+
 public class MaxArraySum {
+
+    // Complete the maxSubsetSum function below.
+    static int maxSubsetSum(int[] arr) {
+
+        System.out.println(Integer.toBinaryString(arr[0]));
+
+//        return arr[0] & arr[1];
+        return arr[0] << 1;
+    }
 
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
+/*//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int numberOfElements = scanner.nextInt();
+        int n = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-        int[] inputArray = new int[numberOfElements];
-        String[] arrayItems = scanner.nextLine().split(" ");
 
-        for(int i=0; i < arrayItems.length; i++){
-            inputArray[i] = Integer.valueOf(arrayItems[i]);
-        }
-        System.out.println(Arrays.toString(inputArray));
-        int maxSubsetSum = maxSubsetSum(inputArray);
-        System.out.println("Max Sum -- "+ maxSubsetSum);
+        int[] arr = new int[n];
 
-    }
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-    private static int maxSubsetSum(int[] inputArray){
-        int sumInclusiveCurrentElement = inputArray[0];
-        int sumExclusiveCurrentElement = 0;
-        int tempMax;
-
-        for(int i = 1; i< inputArray.length; i++){
-            tempMax = (sumInclusiveCurrentElement > sumExclusiveCurrentElement) ? sumInclusiveCurrentElement : sumExclusiveCurrentElement;
-            sumInclusiveCurrentElement = sumExclusiveCurrentElement + inputArray[i];
-            sumExclusiveCurrentElement = tempMax;
+        for (int i = 0; i < n; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
         }
 
-        return (sumInclusiveCurrentElement > sumExclusiveCurrentElement) ? sumInclusiveCurrentElement : sumExclusiveCurrentElement;
+        int res = maxSubsetSum(arr);
 
+      bufferedWriter.write(String.valueOf(res));
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+*/
+//        scanner.close();
+
+        int[] arr = new int[2];
+        arr[0] = 2;
+        arr[1] = 6;
+
+        int res = maxSubsetSum(arr);
+        System.out.println(res);
+        System.out.println(Integer.toBinaryString(res));
     }
 
 }
