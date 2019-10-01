@@ -9,15 +9,6 @@ import java.util.Scanner;
 
 public class MaxArraySum {
 
-    // Complete the maxSubsetSum function below.
-//    static int maxSubsetSum(int[] arr) {
-//
-//        System.out.println(Integer.toBinaryString(arr[0]));
-//
-//        return arr[0] & arr[1];
-//        return arr[0] << 1;
-//    }
-
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
