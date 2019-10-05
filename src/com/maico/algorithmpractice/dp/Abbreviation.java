@@ -35,7 +35,9 @@ public class Abbreviation {
         for (int i = 0; i < q; i++) {
             String a = scanner.nextLine();
             String b = scanner.nextLine();
-            String result = abbreviation(a, b);
+//            String result = abbreviation(a, b);
+            String result = abbreviationWithTwoPointer(a, b);
+
             System.out.println(result);
         }
 
@@ -93,6 +95,111 @@ public class Abbreviation {
         }
         System.out.println(builder.toString());
         return builder.toString();
+    }
+
+    private static String abbreviationWithTwoPointer(String input, String result){
+        char[] inputArray = input.toCharArray();
+        char[] resultArray = result.toCharArray();
+        List<Character> resultString = new ArrayList<>();
+
+        if(input.length() < result.length()){
+            return "NO";
+        }
+
+        int i = 0;
+        int j = 0;
+        char tempPreviousCharacter = '1';
+
+        try{
+
+
+            while (j < result.length()){
+                char inputChar = inputArray[i];
+                char resultChar = resultArray[j];
+
+                int inputCharAscii = (int) inputChar;
+                int resultCharAscii = (int) resultChar;
+
+
+                if( inputCharAscii >= 97 && inputCharAscii <= 122){ //character is lowercase
+
+//                check with previous character
+                    if(Character.toUpperCase(inputChar) == Character.toUpperCase(tempPreviousCharacter)){ //check with previous character
+                        tempPreviousCharacter = inputChar;
+                        i++;
+                        continue;
+                    }else {
+                        if(resultChar == Character.toUpperCase(inputChar)){
+                            i++;
+                            j++;
+                            resultString.add(Character.toUpperCase(inputChar));
+                            System.out.print(Character.toUpperCase(inputChar));
+                            tempPreviousCharacter = inputChar;
+                            continue;
+                        }else{
+                            tempPreviousCharacter = inputChar;
+                            i++;
+                            continue;
+                        }
+                    }
+
+                }else if(inputCharAscii >= 65 && inputCharAscii <= 90){ //character is uppercase
+                    if(Character.isUpperCase(tempPreviousCharacter) && tempPreviousCharacter == inputChar && inputChar != resultChar){
+                        getStringRepresentation(resultString);
+                        System.out.println("Previous charter uppercase && input uppercase && input != result");
+                        System.out.println("input: "+i +" output:" + j );
+                        return "NO";
+                    }
+                    if(Character.toUpperCase(tempPreviousCharacter) == inputChar){
+                        tempPreviousCharacter = inputChar;
+                        i++;
+                        if(inputChar == resultChar){
+                            j++;
+                            resultString.add(Character.toUpperCase(inputChar));
+                            System.out.print(Character.toUpperCase(inputChar));
+                        }
+                        continue;
+                    }
+                    if(inputChar == resultChar){
+                        tempPreviousCharacter = inputChar;
+                        i++;
+                        j++;
+                        resultString.add(Character.toUpperCase(inputChar));
+                        System.out.print(Character.toUpperCase(inputChar));
+                        continue;
+                    }else {
+                        getStringRepresentation(resultString);
+                        System.out.println("Input Uppercase && not equal result character");
+                        System.out.println("input: "+i +" output:" + j );
+                        return "NO";
+                    }
+
+
+                }
+            }
+
+            while (i < inputArray.length){
+                if(Character.isUpperCase(inputArray[i])){
+                    getStringRepresentation(resultString);
+                    System.out.println("index out: input: "+i +" output:" + j );
+                    return "NO";
+                }
+                i++;
+            }
+
+
+
+        }catch (ArrayIndexOutOfBoundsException e){
+            getStringRepresentation(resultString);
+            System.out.println("input: "+i +"output:" + j );
+            return "NO";
+        }
+
+
+        getStringRepresentation(resultString);
+
+        return "YES";
+
     }
 
 
