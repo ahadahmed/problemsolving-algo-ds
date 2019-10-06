@@ -37,7 +37,7 @@ public class Abbreviation {
             String b = scanner.nextLine();
 //            String result = abbreviation(a, b);
             String result = abbreviationWithTwoPointer(a, b);
-
+            System.out.println();
             System.out.println(result);
         }
 
@@ -93,7 +93,7 @@ public class Abbreviation {
         for (Character ch : characters) {
             builder.append(ch);
         }
-        System.out.println(builder.toString());
+//        System.out.println(builder.toString());
         return builder.toString();
     }
 
@@ -109,6 +109,7 @@ public class Abbreviation {
         int i = 0;
         int j = 0;
         char tempPreviousCharacter = '1';
+        char previousResultCharacter = '0';
 
         try{
 
@@ -119,12 +120,14 @@ public class Abbreviation {
 
                 int inputCharAscii = (int) inputChar;
                 int resultCharAscii = (int) resultChar;
-
+                if(j > 0){
+                    previousResultCharacter = resultArray[j - 1];
+                }
 
                 if( inputCharAscii >= 97 && inputCharAscii <= 122){ //character is lowercase
 
 //                check with previous character
-                    if(Character.toUpperCase(inputChar) == Character.toUpperCase(tempPreviousCharacter)){ //check with previous character
+                    if(Character.toUpperCase(inputChar) == Character.toUpperCase(tempPreviousCharacter) && Character.toUpperCase(inputChar) != resultChar){ //check with previous character
                         tempPreviousCharacter = inputChar;
                         i++;
                         continue;
@@ -144,13 +147,13 @@ public class Abbreviation {
                     }
 
                 }else if(inputCharAscii >= 65 && inputCharAscii <= 90){ //character is uppercase
-                    if(Character.isUpperCase(tempPreviousCharacter) && tempPreviousCharacter == inputChar && inputChar != resultChar){
+                    if(Character.isUpperCase(tempPreviousCharacter) && tempPreviousCharacter == inputChar && inputChar != resultChar && inputChar != previousResultCharacter){
                         getStringRepresentation(resultString);
                         System.out.println("Previous charter uppercase && input uppercase && input != result");
                         System.out.println("input: "+i +" output:" + j );
                         return "NO";
                     }
-                    if(Character.toUpperCase(tempPreviousCharacter) == inputChar){
+                    if(Character.toUpperCase(tempPreviousCharacter) == inputChar){ // Does InputCharacter is equal Previous character
                         tempPreviousCharacter = inputChar;
                         i++;
                         if(inputChar == resultChar){
@@ -160,6 +163,7 @@ public class Abbreviation {
                         }
                         continue;
                     }
+//                    if(i > 2 && )
                     if(inputChar == resultChar){
                         tempPreviousCharacter = inputChar;
                         i++;
@@ -171,6 +175,8 @@ public class Abbreviation {
                         getStringRepresentation(resultString);
                         System.out.println("Input Uppercase && not equal result character");
                         System.out.println("input: "+i +" output:" + j );
+//                        i++;
+//                        continue;
                         return "NO";
                     }
 
