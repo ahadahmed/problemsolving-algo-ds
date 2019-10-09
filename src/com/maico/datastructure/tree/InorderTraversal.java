@@ -7,6 +7,10 @@ public class InorderTraversal {
     private static Node root;
 
 
+
+
+
+
     public static Node insert(Node root, int key){
 
         if(root == null){
@@ -46,31 +50,20 @@ public class InorderTraversal {
         }
     }
 
-    public static void preOrder(Node root){
-        if (root != null) {
-            System.out.println(root.getNodeValue()+" ");
-            preOrder(root.getLeftNode());
-            preOrder(root.getRightNode());
-        }
-    }
-
-    public static void postOrder(Node root){
-        if (root != null) {
-            postOrder(root.getLeftNode());
-            postOrder(root.getRightNode());
-            System.out.println(root.getNodeValue()+" ");
-
-        }
-    }
-
-    /**
-        Max height of Binary Tree
-     */
     public static int height(Node root){
+        int leftH = 0;
+        int rightH = 0;
         if(root.getLeftNode() == null && root.getRightNode() == null){
             return 0;
+        }else {
+            if(root.getLeftNode() != null){
+                leftH = height(root.getLeftNode())+1;
+            }else {
+                rightH = height(root.getRightNode())+1;
+            }
         }
-        return Math.max(height(root.getLeftNode()), height(root.getRightNode())) + 1;
+
+        return Math.max(leftH, rightH);
 
     }
 
