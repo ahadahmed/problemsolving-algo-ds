@@ -147,6 +147,8 @@ public class Abbreviation {
                     }
 
                 }else if(inputCharAscii >= 65 && inputCharAscii <= 90){ //character is uppercase
+//                    Does previousCharacter is uppercase AND equal to inputCharacter AND inputCharacter IS NOT equal resultChar AND inputChar IS NOT equal previousResultCharacter
+
                     if(Character.isUpperCase(tempPreviousCharacter) && tempPreviousCharacter == inputChar && inputChar != resultChar && inputChar != previousResultCharacter){
                         getStringRepresentation(resultString);
                         System.out.println("Previous charter uppercase && input uppercase && input != result");
@@ -163,6 +165,8 @@ public class Abbreviation {
                         }
                         continue;
                     }
+
+//                    TODO: Check 'hhcHa' is equal 'HA'
 //                    if(i > 2 && )
                     if(inputChar == resultChar){
                         tempPreviousCharacter = inputChar;
