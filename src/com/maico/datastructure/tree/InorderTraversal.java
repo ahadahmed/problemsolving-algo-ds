@@ -50,6 +50,22 @@ public class InorderTraversal {
         }
     }
 
+    public static void preOrder(Node root){
+        if (root != null) {
+            System.out.println(root.getNodeValue()+" ");
+            preOrder(root.getLeftNode());
+            preOrder(root.getRightNode());
+        }
+    }
+
+    public static void postOrder(Node root){
+        if (root != null) {
+            postOrder(root.getLeftNode());
+            postOrder(root.getRightNode());
+            System.out.println(root.getNodeValue()+" ");
+
+        }
+    }
     public static int height(Node root){
         if(root.getLeftNode() == null && root.getRightNode() == null){
             return 0;
