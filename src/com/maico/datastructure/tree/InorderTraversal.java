@@ -51,19 +51,10 @@ public class InorderTraversal {
     }
 
     public static int height(Node root){
-        int leftH = 0;
-        int rightH = 0;
         if(root.getLeftNode() == null && root.getRightNode() == null){
             return 0;
-        }else {
-            if(root.getLeftNode() != null){
-                leftH = height(root.getLeftNode())+1;
-            }else {
-                rightH = height(root.getRightNode())+1;
-            }
         }
-
-        return Math.max(leftH, rightH);
+        return Math.max(height(root.getLeftNode()), height(root.getRightNode())) + 1;
 
     }
 
