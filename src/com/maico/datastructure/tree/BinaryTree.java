@@ -53,4 +53,21 @@ public class BinaryTree {
 		}
 	}
 
+	public static Node insertNode(Node root, int data) {
+		if (root == null) {
+			return new Node(data);
+		}else {
+			Node current;
+			if(data <= root.getNodeValue()){
+				current = insertNode(root.getLeftNode(), data);
+				root.setLeftNode(current);
+			}else {
+				current = insertNode(root.getRightNode(), data);
+				root.setRightNode(current);
+
+			}
+		}
+		return root;
+	}
+
 }
