@@ -7,10 +7,6 @@ public class InorderTraversal {
     private static Node root;
 
 
-
-
-
-
     public static Node insert(Node root, int key){
 
         if(root == null){
@@ -66,6 +62,10 @@ public class InorderTraversal {
 
         }
     }
+
+    /**
+        Max height of Binary Tree
+     */
     public static int height(Node root){
         if(root.getLeftNode() == null && root.getRightNode() == null){
             return 0;
