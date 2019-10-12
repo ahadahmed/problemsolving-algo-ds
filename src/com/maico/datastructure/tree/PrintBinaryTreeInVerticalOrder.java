@@ -86,4 +86,32 @@ public class PrintBinaryTreeInVerticalOrder {
 
         }
     }
+
+
+    private static boolean checkBinarySearchTree(Node root) {
+
+        Queue<Node> nodeQueue = new LinkedList<>();
+
+        nodeQueue.add(root);
+
+
+        while (!nodeQueue.isEmpty()) {
+            Node temp = nodeQueue.poll();
+
+            if (temp.getLeftNode() != null) {
+                if(temp.getNodeValue() < temp.getLeftNode().getNodeValue() || root.getNodeValue() < temp.getLeftNode().getNodeValue()){
+                    return false;
+                }
+                nodeQueue.add(temp.getLeftNode());
+            }
+            if (temp.getRightNode() != null) {
+                if(temp.getNodeValue() > temp.getRightNode().getNodeValue() ){
+                    return false;
+                }
+                nodeQueue.add(temp.getRightNode());
+            }
+        }
+
+        return true;
+    }
 }
