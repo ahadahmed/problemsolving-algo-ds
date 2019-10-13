@@ -8,21 +8,30 @@ public class PrintBinaryTreeInVerticalOrder {
     private static TreeMap<Integer, List<Node>> horizontalDistanceMap = new TreeMap<>();
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int numberOfNodes = scanner.nextInt();
+//        Scanner scanner = new Scanner(System.in);
+//        int numberOfNodes = scanner.nextInt();
 
-        while (numberOfNodes-- > 0){
-            root = BinaryTree.insertNode(root,scanner.nextInt());
+//        int[] nodes = {20,8,22,4,12,21,24,10,14,23,25};
+        int[] nodes = {2, 1, 4, 3, 5, 6, 7};
+
+        for(int i = 0; i < nodes.length; i++){
+            root = BinaryTree.insertNode(root,nodes[i]);
         }
+
+        /*while (numberOfNodes-- > 0){
+            root = BinaryTree.insertNode(root,scanner.nextInt());
+        }*/
 //        verticalOrderTraversal(root, 0);
-        verticalTraversalUsingBFS(root);
+       /* verticalTraversalUsingBFS(root);
         for(Map.Entry<Integer, List<Node>> entry: horizontalDistanceMap.entrySet()){
             System.out.print(entry.getKey()+"--> ");
             for(Node n : entry.getValue()){
                 System.out.print(n.getNodeValue()+" ");
             }
             System.out.println();
-        }
+        }*/
+
+        System.out.println(checkBinarySearchTree(root));
     }
 
 
@@ -92,26 +101,69 @@ public class PrintBinaryTreeInVerticalOrder {
 
         Queue<Node> nodeQueue = new LinkedList<>();
 
-        nodeQueue.add(root);
 
+        Node leftChild = null;
+        Node rightChild = null;
 
+        if(root.leftNode != null){
+            leftChild = root.leftNode;
+            if(root.nodeValue <= leftChild.nodeValue){
+                return false;
+            }
+        }
+
+        if(root.rightNode != null){
+            rightChild = root.rightNode;
+            if(root.nodeValue >= rightChild.nodeValue){
+                return false;
+            }
+        }
+
+        nodeQueue.add(leftChild);
         while (!nodeQueue.isEmpty()) {
             Node temp = nodeQueue.poll();
+            if (root.nodeValue < temp.nodeValue) {
+                return false;
+            } else {
+                if (temp.leftNode != null) {
 
-            if (temp.getLeftNode() != null) {
-                if(temp.getNodeValue() < temp.getLeftNode().getNodeValue() || root.getNodeValue() < temp.getLeftNode().getNodeValue()){
-                    return false;
+                    if (temp.nodeValue <= temp.leftNode.nodeValue) {
+                        return false;
+                    }
+                    nodeQueue.add(temp.leftNode);
                 }
-                nodeQueue.add(temp.getLeftNode());
+                if (temp.rightNode != null) {
+                    if(temp.nodeValue >= temp.rightNode.nodeValue || root.nodeValue <= temp.nodeValue){
+                        return false;
+                    }
+                    nodeQueue.add(temp.rightNode);
+                }
             }
-            if (temp.getRightNode() != null) {
-                if(temp.getNodeValue() > temp.getRightNode().getNodeValue() ){
-                    return false;
+        }
+
+        nodeQueue.add(rightChild);
+
+        while(!nodeQueue.isEmpty()){
+            Node temp = nodeQueue.poll();
+            if(root.nodeValue >= temp.nodeValue){
+                return false;
+            }else{
+                if (temp.leftNode != null) {
+                    if(temp.nodeValue <= temp.leftNode.nodeValue){
+                        return false;
+                    }
+                    nodeQueue.add(temp.leftNode);
                 }
-                nodeQueue.add(temp.getRightNode());
+                if (temp.rightNode != null) {
+                    if(temp.nodeValue >= temp.rightNode.nodeValue){
+                        return false;
+                    }
+                    nodeQueue.add(temp.rightNode);
+                }
             }
         }
 
         return true;
+
     }
 }
