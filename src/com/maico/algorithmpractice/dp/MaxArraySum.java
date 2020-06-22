@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
-
+//initial commit
 public class MaxArraySum {
 
     private static final Scanner scanner = new Scanner(System.in);
