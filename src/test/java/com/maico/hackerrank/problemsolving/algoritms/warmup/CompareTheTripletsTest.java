@@ -1,5 +1,8 @@
 package com.maico.hackerrank.problemsolving.algoritms.warmup;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +13,7 @@ class CompareTheTripletsTest {
     List<Integer> bobInput = new ArrayList<>();
 
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
 
         aliceInput.add(15);
@@ -23,7 +26,7 @@ class CompareTheTripletsTest {
     }
 
 
-    @org.junit.jupiter.api.Test
+    @Test
     void compareTriplets() {
         int[] expected = {2, 1};
         assertArrayEquals(expected, CompareTheTriplets.compareTriplets(aliceInput, bobInput));

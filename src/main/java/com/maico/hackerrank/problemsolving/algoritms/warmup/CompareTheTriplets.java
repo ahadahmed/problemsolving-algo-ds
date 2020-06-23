@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
  */
 public class CompareTheTriplets {
 
-    private final static String FILE_PATH = "/Users/ahadahmed/projects/algorithmpractice/inputfiles/comparetriplets.txt";
+    private final static String FILE_PATH = System.getProperty("user.dir") + "/inputfiles/comparetriplets.txt";
+
     public static void main(String[] args) {
 
         File textFile = new File(FILE_PATH);
@@ -22,11 +23,10 @@ public class CompareTheTriplets {
         List<Integer> aliceInput = null;
         List<Integer> bobInput = null;
 
-
         try {
             Scanner filScanner = new Scanner(textFile);
-            aliceInput = prepareIntInput(aliceInput, filScanner.nextLine().split(" "));
-            bobInput = prepareIntInput(bobInput, filScanner.nextLine().split(" "));
+            aliceInput = prepareIntInput(filScanner.nextLine().split(" "));
+            bobInput = prepareIntInput(filScanner.nextLine().split(" "));
             aliceInput.forEach(v -> System.out.print(v + " "));
             System.out.println();
             bobInput.forEach(v -> System.out.print(v + " "));
@@ -41,9 +41,8 @@ public class CompareTheTriplets {
 
 
 
-    private static List<Integer> prepareIntInput(List<Integer> intInput, String[] strInput){
-
-        intInput = Arrays.stream(strInput).map(Integer::parseInt).collect(Collectors.toList());
+    private static List<Integer> prepareIntInput(String[] strInput){
+        List<Integer> intInput = Arrays.stream(strInput).map(Integer::parseInt).collect(Collectors.toList());
         return intInput;
     }
 
