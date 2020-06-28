@@ -1,8 +1,8 @@
 package com.maico.hackerrank.problemsolving.algoritms.warmup;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import com.maico.hackerrank.Utils;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -14,28 +14,21 @@ import java.util.stream.Collectors;
  */
 public class CompareTheTriplets {
 
-    private final static String FILE_PATH = System.getProperty("user.dir") + "/inputfiles/comparetriplets.txt";
 
     public static void main(String[] args) {
-
-        File textFile = new File(FILE_PATH);
+        Utils.setFileName("comparetriplets.txt");
+        Scanner fileScanner = Utils.getFilScanner();
 
         List<Integer> aliceInput = null;
         List<Integer> bobInput = null;
 
-        try {
-            Scanner filScanner = new Scanner(textFile);
-            aliceInput = prepareIntInput(filScanner.nextLine().split(" "));
-            bobInput = prepareIntInput(filScanner.nextLine().split(" "));
-            aliceInput.forEach(v -> System.out.print(v + " "));
-            System.out.println();
-            bobInput.forEach(v -> System.out.print(v + " "));
-            System.out.println();
-            System.out.println(Arrays.toString(compareTriplets(aliceInput, bobInput)));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        aliceInput = prepareIntInput(fileScanner.nextLine().split(" "));
+        bobInput = prepareIntInput(fileScanner.nextLine().split(" "));
+        aliceInput.forEach(v -> System.out.print(v + " "));
+        System.out.println();
+        bobInput.forEach(v -> System.out.print(v + " "));
+        System.out.println();
+        System.out.println(Arrays.toString(compareTriplets(aliceInput, bobInput)));
 
     }
 
