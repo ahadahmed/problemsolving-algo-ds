@@ -48,6 +48,7 @@ public class ZeroOneKnapsack {
                 }
 //                exclude current item
                 profitExcludingCurrentItem = dpTable[row - 1][capacity];
+
                 dpTable[row][capacity] = Math.max(profitIncludingCurrentItem, profitExcludingCurrentItem);
 
             }
