@@ -49,9 +49,19 @@ class MinimumCoinChangeTest {
     @Test
     void minimumCoinDpFailed7() {
 
-
         int[] coins = {3, 5};
         int targetAmount = 7;
+        System.out.println("coins: " + Arrays.toString(coins));
+        System.out.println("target sum: " + targetAmount);
+        int minRequiredCoin = minimumCoinChange.minimumCoinDp(coins, targetAmount);
+        System.out.println("Minimum coin required: " + minRequiredCoin);
+    }
+
+    @Test
+    void minimumCoinDpFailed4() {
+
+        int[] coins = {2};
+        int targetAmount = 4;
         System.out.println("coins: " + Arrays.toString(coins));
         System.out.println("target sum: " + targetAmount);
         int minRequiredCoin = minimumCoinChange.minimumCoinDp(coins, targetAmount);
