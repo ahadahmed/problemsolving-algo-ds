@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author ahadahmed - 28/6/20
- * @see <a href="https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews/NE0yNJ1rZy6"> see this</a>
+ * @see <a href="https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews/gx763A3x9Pl"> see this</a>
  */
 public class CoinChangeProblem {
 
