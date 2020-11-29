@@ -2,7 +2,7 @@ package com.maico.dynamicprogramming.educative.pattern.slidingwindow;
 
 /**
  * @author ahadahmed - 11/29/20
- * @see <a href="#"> see this</a>
+ * @see <a href="https://www.educative.io/courses/grokking-the-coding-interview/JPKr0kqLGNP"> see this</a>
  */
 public class MaxSubArraySum {
 
