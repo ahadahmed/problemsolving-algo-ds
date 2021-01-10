@@ -26,20 +26,20 @@ jobs:
     - name: print java version
       run: java -version | javac -version
 
-    - name: Print directory
-      run: echo $HOME
+#    - name: Print directory
+#      run: echo $HOME
 
-    - name: Print Current directory (pwd)
-      run: pwd
+#    - name: Print Current directory (pwd)
+#      run: pwd
 
-    - name: Print $GITHUB_WORKSPACE env variable
-      run: echo $GITHUB_WORKSPACE
+#    - name: Print $GITHUB_WORKSPACE env variable
+#      run: echo $GITHUB_WORKSPACE
 
-    - name : print directory
-      run: ls -lah
+#    - name : print directory
+#      run: ls -lah
 
-    - name: print hashFiles env variable
-      run: echo ${{hashFiles('*')}}
+#    - name: print hashFiles env variable
+#      run: echo ${{hashFiles('*')}}
 
     - name: print maven version
       run: mvn -version
