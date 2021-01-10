@@ -22,6 +22,6 @@ jobs:
         java-version: 1.8
         
     - name: Print directory
-      run: pwd
+      run: echo $HOME
     - name: Build with Maven
       run: mvn -B clean test --file pom.xml
