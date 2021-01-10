@@ -22,6 +22,8 @@ jobs:
       with:
         java-version: '11.0.9'
         java-package: jdk
+
+    - name: print java version
       run: java -version | javac -version
 
     - name: Print directory
