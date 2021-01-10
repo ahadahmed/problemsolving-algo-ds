@@ -29,7 +29,7 @@ jobs:
       run: echo $GITHUB_WORKSPACE
     - name : print directory
       run: ls -lah
-    - name: print runner.os env variable
-      run: echo ${{runner.os}}
+    - name: print hashFiles env variable
+      run: echo ${{hashFiles('*')}}
 #     - name: Build with Maven
 #       run: mvn -B clean test --file pom.xml
