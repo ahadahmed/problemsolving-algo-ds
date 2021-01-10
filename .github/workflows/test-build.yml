@@ -44,5 +44,12 @@ jobs:
     - name: print maven version
       run: mvn -version
 
+    - name: Caching local maven repository
+      uses: actions/cache@v2
+      with:
+         path: ~/.m2
+         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+         restore-keys: ${{ runner.os }}-maven-
+
     - name: Test with Maven
       run: mvn -B clean test
