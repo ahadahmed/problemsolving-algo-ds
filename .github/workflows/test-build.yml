@@ -22,6 +22,6 @@ jobs:
         java-version: 1.8
         
     - name: Print directory
-      run: pwd | echo $GITHUB_RUN_NUMBER | echo $GITHUB_WORKSPACE
+      run: pwd | echo "Workspace>>>" $GITHUB_WORKSPACE
     - name: Build with Maven
       run: mvn -B clean test --file pom.xml
