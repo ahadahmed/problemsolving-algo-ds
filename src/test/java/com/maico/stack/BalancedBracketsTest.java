@@ -72,7 +72,7 @@ class BalancedBracketsTest {
     }
 
     @Test
-    void isBalanced7_1() {
+    void isBalanced8() {
         String s = "(a)";
         boolean result = balancedBrackets.isBalanced(s);
         System.out.println(result);
