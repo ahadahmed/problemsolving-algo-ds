@@ -2,10 +2,13 @@ package com.maico.stack;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BalancedBracketsTest {
+@Execution(ExecutionMode.CONCURRENT)
+public class BalancedBracketsTest {
     private static BalancedBrackets balancedBrackets;
 
     @BeforeAll
@@ -18,7 +21,6 @@ class BalancedBracketsTest {
     void isBalanced() {
         String s = "(({}))";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertTrue(result);
     }
 
@@ -27,7 +29,6 @@ class BalancedBracketsTest {
     void isBalanced2() {
         String s = "((";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertFalse(result);
     }
 
@@ -35,7 +36,6 @@ class BalancedBracketsTest {
     void isBalanced3() {
         String s = "()";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertTrue(result);
     }
 
@@ -43,7 +43,6 @@ class BalancedBracketsTest {
     void isBalanced4() {
         String s = "";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertTrue(result);
     }
 
@@ -51,7 +50,6 @@ class BalancedBracketsTest {
     void isBalanced5() {
         String s = "(){}{}{}{}{}{{{{}}}}))))))";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertFalse(result);
     }
 
@@ -59,7 +57,6 @@ class BalancedBracketsTest {
     void isBalanced6() {
         String s = "}}}))))))";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertFalse(result);
     }
 
@@ -67,7 +64,6 @@ class BalancedBracketsTest {
     void isBalanced7() {
         String s = "";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertTrue(result);
     }
 
@@ -75,7 +71,6 @@ class BalancedBracketsTest {
     void isBalanced8() {
         String s = "(a)";
         boolean result = balancedBrackets.isBalanced(s);
-        System.out.println(result);
         assertTrue(result);
     }
 
