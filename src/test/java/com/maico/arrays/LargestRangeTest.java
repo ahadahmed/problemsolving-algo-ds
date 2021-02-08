@@ -22,7 +22,7 @@ class LargestRangeTest {
         int[] output;
         System.out.println("input: " + Arrays.toString(input));
         System.out.println("expect: " + Arrays.toString(expected));
-        output = largestRange.largestRange(input);
+        output = largestRange.largestRangeBysorting(input);
         System.out.println("output: " + Arrays.toString(output));
         Assertions.assertArrayEquals(expected, output);
 
@@ -36,7 +36,7 @@ class LargestRangeTest {
         int[] output;
         System.out.println("input: " + Arrays.toString(input));
         System.out.println("expect: " + Arrays.toString(expected));
-        output = largestRange.largestRange(input);
+        output = largestRange.largestRangeBysorting(input);
         System.out.println("output: " + Arrays.toString(output));
         Assertions.assertArrayEquals(expected, output);
 
@@ -49,7 +49,7 @@ class LargestRangeTest {
         int[] output;
         System.out.println("input: " + Arrays.toString(input));
         System.out.println("expect: " + Arrays.toString(expected));
-        output = largestRange.largestRange(input);
+        output = largestRange.largestRangeBysorting(input);
         System.out.println("output: " + Arrays.toString(output));
         Assertions.assertArrayEquals(expected, output);
 
@@ -62,7 +62,7 @@ class LargestRangeTest {
         int[] output;
         System.out.println("input: " + Arrays.toString(input));
         System.out.println("expect: " + Arrays.toString(expected));
-        output = largestRange.largestRange(input);
+        output = largestRange.largestRangeBysorting(input);
         System.out.println("output: " + Arrays.toString(output));
         Assertions.assertArrayEquals(expected, output);
 
@@ -75,7 +75,7 @@ class LargestRangeTest {
         int[] output;
         System.out.println("input: " + Arrays.toString(input));
         System.out.println("expect: " + Arrays.toString(expected));
-        output = largestRange.largestRange(input);
+        output = largestRange.largestRangeBysorting(input);
         System.out.println("output: " + Arrays.toString(output));
         Assertions.assertArrayEquals(expected, output);
 
@@ -88,7 +88,7 @@ class LargestRangeTest {
         int[] output;
         System.out.println("input: " + Arrays.toString(input));
         System.out.println("expect: " + Arrays.toString(expected));
-        output = largestRange.largestRange(input);
+        output = largestRange.largestRangeBysorting(input);
         System.out.println("output: " + Arrays.toString(output));
         Assertions.assertArrayEquals(expected, output);
 
@@ -101,7 +101,7 @@ class LargestRangeTest {
         int[] output;
         System.out.println("input: " + Arrays.toString(input));
         System.out.println("expect: " + Arrays.toString(expected));
-        output = largestRange.largestRange(input);
+        output = largestRange.largestRangeBysorting(input);
         System.out.println("output: " + Arrays.toString(output));
         Assertions.assertArrayEquals(expected, output);
 

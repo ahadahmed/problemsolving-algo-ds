@@ -35,15 +35,16 @@ import java.util.Arrays;
 public class LargestRange {
 
 
-    public int[] largestRange(int[] array) {
+    // time -- O(nlogn)  || As array sorting takes O(nlogn) time
+    // space -- O(1)
+    public int[] largestRangeBysorting(int[] array) {
         int[] result = new int[2];
         int rangeLeftIndex = 0;
         int rangeRightIndex = 0;
         int largestRange = Integer.MIN_VALUE;
         Arrays.sort(array);
-//        [19, -1, 18, 2, 10, 3, 12, 5, 16, 4, 11, 8, 17, 7, 6, 15, 12, 12, 2, 1, 6, 13, 14];
         for (int i = 1; i < array.length; i++) {
-            if(array[i] == array[i-1]){
+            if (array[i] == array[i - 1]) {
                 continue;
             }
 
