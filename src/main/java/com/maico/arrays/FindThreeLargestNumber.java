@@ -9,21 +9,19 @@ public class FindThreeLargestNumber {
     public int[] findThreeLargestNUmber(int[] array) {
         int[] result = {Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE};
 
-        for (int i = 0; i < array.length; i++) {
+        for (int value : array) {
             int temp;
-            if (array[i] >= result[2]) {
+            if (value >= result[2]) {
                 temp = result[2];
-                result[2] = array[i];
+                result[2] = value;
                 result[0] = result[1];
                 result[1] = temp;
-                continue;
-            } else if (array[i] >= result[1] && array[i] < result[2]) {
+            } else if (value >= result[1]) {
                 temp = result[1];
-                result[1] = array[i];
+                result[1] = value;
                 result[0] = temp;
-                continue;
-            } else if (array[i] >= result[0] && array[i] < result[1]) {
-                result[0] = array[i];
+            } else if (value >= result[0]) {
+                result[0] = value;
 
             }
         }
