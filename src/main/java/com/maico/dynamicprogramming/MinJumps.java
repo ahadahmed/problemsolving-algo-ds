@@ -21,7 +21,6 @@ public class MinJumps {
                 steps = maxReach - i;
             }
         }
-        System.out.println(minJumps);
         return minJumps + 1;
     }
 }
