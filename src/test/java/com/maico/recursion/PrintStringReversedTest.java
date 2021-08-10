@@ -30,4 +30,10 @@ class PrintStringReversedTest {
         String input = "87654321";
         printStringReversed.reversedString(input);
     }
+
+    @Test
+    void reversedString4() {
+        String input = "zxy";
+        printStringReversed.reversedString(input);
+    }
 }
