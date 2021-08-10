@@ -36,4 +36,9 @@ class PrintStringReversedTest {
         String input = "zxy";
         printStringReversed.reversedString(input);
     }
+    @Test
+    void reversedString5() {
+        String input = "zyxwvu";
+        printStringReversed.reversedString(input);
+    }
 }
