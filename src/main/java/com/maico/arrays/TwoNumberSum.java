@@ -29,6 +29,9 @@ public class TwoNumberSum {
  */
 
     public  int[] findNumbersThatSumsUpTarget(int[] numbers, int target) {
+        if(numbers.length == 1 && target == numbers[0]){
+            return new int[] {0};
+        }
 
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
