@@ -13,7 +13,7 @@ class TwoNumberSumTest {
     }
 
     @Test
-    @DisplayName("return valid array [0,1]")
+    @DisplayName("return valid array [0,1] for input {-2, 7, 11, 15}")
     void twoSum() {
 
         int[] input = {-2, 7, 11, 15};
@@ -29,7 +29,7 @@ class TwoNumberSumTest {
     }
 
     @Test
-    @DisplayName("return valid array [2,4]")
+    @DisplayName("return valid array [2,4] for input {3,2,95,4,-3}")
     void twoSum2() {
 
         int[] input = {3,2,95,4,-3};
@@ -42,5 +42,24 @@ class TwoNumberSumTest {
         Assertions.assertArrayEquals(expected, actual);
         System.out.println(Arrays.toString(actual));
 
+    }
+    @DisplayName("test empty array")
+    @Test
+    void testEmptyInputArray(){
+        int[] input = {};
+        int target = 5;
+        int[] actual = underTest.findNumbersThatSumsUpTarget(input, target);
+        Assertions.assertArrayEquals(input, actual);
+    }
+
+    @DisplayName("Input array contains single element that is equal to target sum")
+    @Test
+    void testInputArrayContainSingleElement(){
+        int[] input = {5};
+        int target = 5;
+        int[] expected = {0};
+        int[] actual = underTest.findNumbersThatSumsUpTarget(input, target);
+        System.out.println(Arrays.toString(actual));
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
