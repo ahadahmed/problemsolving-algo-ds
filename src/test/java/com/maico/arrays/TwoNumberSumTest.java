@@ -43,6 +43,7 @@ class TwoNumberSumTest {
         System.out.println(Arrays.toString(actual));
 
     }
+
     @DisplayName("test empty array")
     @Test
     void testEmptyInputArray(){
