@@ -36,6 +36,7 @@ public class TwoNumberSum {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
             int complement = target - numbers[i];
+
             if (map.get(complement) != null) {
                 return new int[] {  map.get(complement), i };
             }
